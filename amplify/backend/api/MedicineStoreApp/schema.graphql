@@ -1,0 +1,9 @@
+type Medicine @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  price: String!
+  content: String
+  sideeffects: String
+  image: String
+  dosage: String!
+}

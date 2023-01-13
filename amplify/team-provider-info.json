@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-medicinestoreapp-staging-193736-authRole",
+      "UnauthRoleArn": "arn:aws:iam::873693938287:role/amplify-medicinestoreapp-staging-193736-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::873693938287:role/amplify-medicinestoreapp-staging-193736-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-medicinestoreapp-staging-193736-deployment",
+      "UnauthRoleName": "amplify-medicinestoreapp-staging-193736-unauthRole",
+      "StackName": "amplify-medicinestoreapp-staging-193736",
+      "StackId": "arn:aws:cloudformation:ap-south-1:873693938287:stack/amplify-medicinestoreapp-staging-193736/9135e080-92b0-11ed-8a0b-02d5592f2c7e",
+      "AmplifyAppId": "d1tj672dnbrkij"
+    }
+  }
+}
