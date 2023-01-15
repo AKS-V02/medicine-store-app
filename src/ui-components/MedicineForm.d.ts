@@ -12,8 +12,8 @@ export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes
 export declare type MedicineFormOverridesProps = {
     MedicineForm?: PrimitiveOverrideProps<FlexProps>;
     Content?: PrimitiveOverrideProps<FlexProps>;
-    "Edit Profile29766913"?: PrimitiveOverrideProps<FlexProps>;
-    "Edit Profile29766916"?: PrimitiveOverrideProps<TextProps>;
+    "Edit Profile"?: PrimitiveOverrideProps<FlexProps>;
+    "Add/Update Medicine"?: PrimitiveOverrideProps<TextProps>;
     Icon?: PrimitiveOverrideProps<ViewProps>;
     Vector?: PrimitiveOverrideProps<IconProps>;
     Divider29766917?: PrimitiveOverrideProps<DividerProps>;

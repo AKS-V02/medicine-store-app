@@ -1,4 +1,5 @@
 //import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 import { 
   Meds 
@@ -9,9 +10,18 @@ import {
 import { 
   Footer 
 } from './ui-components';
+import { 
+  MedicineForm 
+} from './ui-components';
+import { 
+  MedicineDetails 
+} from './ui-components';
 
 
 function App() {
+  const [showForm, setShowForm] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
+  const [medicine, setMedicine] = useState();
   const footerOverride ={
     'Rectangle 738' : {
       width : "100%"
@@ -23,7 +33,7 @@ function App() {
         cursor : "pointer",
       },
       onClick : () => {
-        alert("hellow");
+        setShowForm(true);
       },
     },
   };
@@ -31,16 +41,54 @@ function App() {
     <div className="App">
       <NavBar width={"100%"} overrides={navBarOverride}/>
         <header className="App-header" >
-          <Meds 
+          {showDetails && 
+            <MedicineDetails Medicine={medicine}
+            style={{
+              margin : "1rem",
+            }}
+            overrides={{"close":{
+              style : {
+                cursor : "pointer",
+              },
+              onClick : () => {
+                setShowDetails(false);
+              }
+            }}
+          }/>
+          }
+          {showForm && (
+             <MedicineForm 
+                style={{
+                  textAlign : "left",
+                  margin : "1rem",
+                }} 
+                overrides ={
+                    {'Icon' : {
+                      style : {
+                        cursor : "pointer",
+                      },
+                      onClick : ()=>{
+                        setShowForm(false);
+                      }
+                  }}
+                }
+           />
+          )}
+          {!showForm && (
+            <Meds 
             overrideItems={({item,index}) => ({
               overrides : {
                 Button29766759 : {
-                  onClick : () => alert(`${item.id}`),
+                  onClick : () => {
+                    setShowDetails(true);
+                    setMedicine(item.Medicine);
+                  },
                 },
 
               },
             })}
           />
+          )}
         </header>
         <Footer width={"100%"} 
           overrides={footerOverride

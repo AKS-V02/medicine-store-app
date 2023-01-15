@@ -132,7 +132,7 @@ export default function MedicineForm(props) {
           alignSelf="stretch"
           position="relative"
           padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "Edit Profile29766913")}
+          {...getOverrideProps(overrides, "Edit Profile")}
         >
           <Text
             fontFamily="Inter"
@@ -154,8 +154,8 @@ export default function MedicineForm(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Edit Profile"
-            {...getOverrideProps(overrides, "Edit Profile29766916")}
+            children="Add/Update Medicine"
+            {...getOverrideProps(overrides, "Add/Update Medicine")}
           ></Text>
           <View
             width="24px"
