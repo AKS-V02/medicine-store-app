@@ -7,7 +7,7 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Button, Flex, Image, Rating, Text } from "@aws-amplify/ui-react";
+import { Button, Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function MedicineCard(props) {
   const { medicine, overrides, ...rest } = props;
   return (
@@ -19,23 +19,34 @@ export default function MedicineCard(props) {
       justifyContent="center"
       alignItems="flex-start"
       position="relative"
+      borderRadius="20px"
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(255,255,255,1)"
       {...getOverrideProps(overrides, "MedicineCard")}
       {...rest}
     >
+      <Button
+        overflow="hidden"
+        shrink="0"
+        alignSelf="stretch"
+        boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+        size="large"
+        isDisabled={false}
+        variation="link"
+        children="Delete"
+        {...getOverrideProps(overrides, "Button36562693")}
+      ></Button>
       <Image
-        width="unset"
-        height="408px"
+        width="320px"
+        height="340px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         shrink="0"
-        alignSelf="stretch"
         position="relative"
         padding="0px 0px 0px 0px"
-        objectFit="cover"
+        objectFit="contain"
         src={medicine?.image}
         {...getOverrideProps(overrides, "image")}
       ></Image>
@@ -111,12 +122,6 @@ export default function MedicineCard(props) {
             {...getOverrideProps(overrides, "Information about this product")}
           ></Text>
         </Flex>
-        <Rating
-          width="174px"
-          shrink="0"
-          size="default"
-          {...getOverrideProps(overrides, "Rating")}
-        ></Rating>
         <Text
           fontFamily="Inter"
           fontSize="20px"
@@ -145,8 +150,8 @@ export default function MedicineCard(props) {
           size="large"
           isDisabled={false}
           variation="primary"
-          children="Primary Button"
-          {...getOverrideProps(overrides, "Button")}
+          children="View Details"
+          {...getOverrideProps(overrides, "Button29766759")}
         ></Button>
       </Flex>
     </Flex>

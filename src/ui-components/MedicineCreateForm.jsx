@@ -28,7 +28,10 @@ export default function MedicineCreateForm(props) {
     content: "",
     sideeffects: "",
     image: "",
-    dosage: "",
+    description: "",
+    uses: "",
+    itemPerStrip: "",
+    stripStock: "",
   };
   const [name, setName] = React.useState(initialValues.name);
   const [price, setPrice] = React.useState(initialValues.price);
@@ -37,7 +40,14 @@ export default function MedicineCreateForm(props) {
     initialValues.sideeffects
   );
   const [image, setImage] = React.useState(initialValues.image);
-  const [dosage, setDosage] = React.useState(initialValues.dosage);
+  const [description, setDescription] = React.useState(
+    initialValues.description
+  );
+  const [uses, setUses] = React.useState(initialValues.uses);
+  const [itemPerStrip, setItemPerStrip] = React.useState(
+    initialValues.itemPerStrip
+  );
+  const [stripStock, setStripStock] = React.useState(initialValues.stripStock);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setName(initialValues.name);
@@ -45,7 +55,10 @@ export default function MedicineCreateForm(props) {
     setContent(initialValues.content);
     setSideeffects(initialValues.sideeffects);
     setImage(initialValues.image);
-    setDosage(initialValues.dosage);
+    setDescription(initialValues.description);
+    setUses(initialValues.uses);
+    setItemPerStrip(initialValues.itemPerStrip);
+    setStripStock(initialValues.stripStock);
     setErrors({});
   };
   const validations = {
@@ -54,7 +67,10 @@ export default function MedicineCreateForm(props) {
     content: [],
     sideeffects: [],
     image: [],
-    dosage: [{ type: "Required" }],
+    description: [{ type: "Required" }],
+    uses: [],
+    itemPerStrip: [{ type: "Required" }],
+    stripStock: [{ type: "Required" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -86,7 +102,10 @@ export default function MedicineCreateForm(props) {
           content,
           sideeffects,
           image,
-          dosage,
+          description,
+          uses,
+          itemPerStrip,
+          stripStock,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -146,7 +165,10 @@ export default function MedicineCreateForm(props) {
               content,
               sideeffects,
               image,
-              dosage,
+              description,
+              uses,
+              itemPerStrip,
+              stripStock,
             };
             const result = onChange(modelFields);
             value = result?.name ?? value;
@@ -165,9 +187,13 @@ export default function MedicineCreateForm(props) {
         label="Price"
         isRequired={true}
         isReadOnly={false}
+        type="number"
+        step="any"
         value={price}
         onChange={(e) => {
-          let { value } = e.target;
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
           if (onChange) {
             const modelFields = {
               name,
@@ -175,7 +201,10 @@ export default function MedicineCreateForm(props) {
               content,
               sideeffects,
               image,
-              dosage,
+              description,
+              uses,
+              itemPerStrip,
+              stripStock,
             };
             const result = onChange(modelFields);
             value = result?.price ?? value;
@@ -204,7 +233,10 @@ export default function MedicineCreateForm(props) {
               content: value,
               sideeffects,
               image,
-              dosage,
+              description,
+              uses,
+              itemPerStrip,
+              stripStock,
             };
             const result = onChange(modelFields);
             value = result?.content ?? value;
@@ -233,7 +265,10 @@ export default function MedicineCreateForm(props) {
               content,
               sideeffects: value,
               image,
-              dosage,
+              description,
+              uses,
+              itemPerStrip,
+              stripStock,
             };
             const result = onChange(modelFields);
             value = result?.sideeffects ?? value;
@@ -262,7 +297,10 @@ export default function MedicineCreateForm(props) {
               content,
               sideeffects,
               image: value,
-              dosage,
+              description,
+              uses,
+              itemPerStrip,
+              stripStock,
             };
             const result = onChange(modelFields);
             value = result?.image ?? value;
@@ -278,10 +316,10 @@ export default function MedicineCreateForm(props) {
         {...getOverrideProps(overrides, "image")}
       ></TextField>
       <TextField
-        label="Dosage"
+        label="Description"
         isRequired={true}
         isReadOnly={false}
-        value={dosage}
+        value={description}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -291,20 +329,127 @@ export default function MedicineCreateForm(props) {
               content,
               sideeffects,
               image,
-              dosage: value,
+              description: value,
+              uses,
+              itemPerStrip,
+              stripStock,
             };
             const result = onChange(modelFields);
-            value = result?.dosage ?? value;
+            value = result?.description ?? value;
           }
-          if (errors.dosage?.hasError) {
-            runValidationTasks("dosage", value);
+          if (errors.description?.hasError) {
+            runValidationTasks("description", value);
           }
-          setDosage(value);
+          setDescription(value);
         }}
-        onBlur={() => runValidationTasks("dosage", dosage)}
-        errorMessage={errors.dosage?.errorMessage}
-        hasError={errors.dosage?.hasError}
-        {...getOverrideProps(overrides, "dosage")}
+        onBlur={() => runValidationTasks("description", description)}
+        errorMessage={errors.description?.errorMessage}
+        hasError={errors.description?.hasError}
+        {...getOverrideProps(overrides, "description")}
+      ></TextField>
+      <TextField
+        label="Uses"
+        isRequired={false}
+        isReadOnly={false}
+        value={uses}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              name,
+              price,
+              content,
+              sideeffects,
+              image,
+              description,
+              uses: value,
+              itemPerStrip,
+              stripStock,
+            };
+            const result = onChange(modelFields);
+            value = result?.uses ?? value;
+          }
+          if (errors.uses?.hasError) {
+            runValidationTasks("uses", value);
+          }
+          setUses(value);
+        }}
+        onBlur={() => runValidationTasks("uses", uses)}
+        errorMessage={errors.uses?.errorMessage}
+        hasError={errors.uses?.hasError}
+        {...getOverrideProps(overrides, "uses")}
+      ></TextField>
+      <TextField
+        label="Item per strip"
+        isRequired={true}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={itemPerStrip}
+        onChange={(e) => {
+          let value = isNaN(parseInt(e.target.value))
+            ? e.target.value
+            : parseInt(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              name,
+              price,
+              content,
+              sideeffects,
+              image,
+              description,
+              uses,
+              itemPerStrip: value,
+              stripStock,
+            };
+            const result = onChange(modelFields);
+            value = result?.itemPerStrip ?? value;
+          }
+          if (errors.itemPerStrip?.hasError) {
+            runValidationTasks("itemPerStrip", value);
+          }
+          setItemPerStrip(value);
+        }}
+        onBlur={() => runValidationTasks("itemPerStrip", itemPerStrip)}
+        errorMessage={errors.itemPerStrip?.errorMessage}
+        hasError={errors.itemPerStrip?.hasError}
+        {...getOverrideProps(overrides, "itemPerStrip")}
+      ></TextField>
+      <TextField
+        label="Strip stock"
+        isRequired={true}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={stripStock}
+        onChange={(e) => {
+          let value = isNaN(parseInt(e.target.value))
+            ? e.target.value
+            : parseInt(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              name,
+              price,
+              content,
+              sideeffects,
+              image,
+              description,
+              uses,
+              itemPerStrip,
+              stripStock: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.stripStock ?? value;
+          }
+          if (errors.stripStock?.hasError) {
+            runValidationTasks("stripStock", value);
+          }
+          setStripStock(value);
+        }}
+        onBlur={() => runValidationTasks("stripStock", stripStock)}
+        errorMessage={errors.stripStock?.errorMessage}
+        hasError={errors.stripStock?.hasError}
+        {...getOverrideProps(overrides, "stripStock")}
       ></TextField>
       <Flex
         justifyContent="space-between"

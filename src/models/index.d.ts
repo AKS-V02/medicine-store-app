@@ -13,11 +13,14 @@ type EagerMedicine = {
   };
   readonly id: string;
   readonly name: string;
-  readonly price: string;
+  readonly price: number;
   readonly content?: string | null;
   readonly sideeffects?: string | null;
   readonly image?: string | null;
-  readonly dosage: string;
+  readonly description: string;
+  readonly uses?: string | null;
+  readonly itemPerStrip: number;
+  readonly stripStock: number;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -29,11 +32,14 @@ type LazyMedicine = {
   };
   readonly id: string;
   readonly name: string;
-  readonly price: string;
+  readonly price: number;
   readonly content?: string | null;
   readonly sideeffects?: string | null;
   readonly image?: string | null;
-  readonly dosage: string;
+  readonly description: string;
+  readonly uses?: string | null;
+  readonly itemPerStrip: number;
+  readonly stripStock: number;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

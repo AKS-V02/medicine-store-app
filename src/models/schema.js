@@ -20,7 +20,7 @@ export const schema = {
                 "price": {
                     "name": "price",
                     "isArray": false,
-                    "type": "String",
+                    "type": "Float",
                     "isRequired": true,
                     "attributes": []
                 },
@@ -45,10 +45,31 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "dosage": {
-                    "name": "dosage",
+                "description": {
+                    "name": "description",
                     "isArray": false,
                     "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "uses": {
+                    "name": "uses",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "itemPerStrip": {
+                    "name": "itemPerStrip",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "stripStock": {
+                    "name": "stripStock",
+                    "isArray": false,
+                    "type": "Int",
                     "isRequired": true,
                     "attributes": []
                 },
@@ -98,5 +119,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.4",
-    "version": "8bc94ea104b7590d3c0ddc0c58ada543"
+    "version": "a65c109418f0ae70f1917051cd3b54b2"
 };

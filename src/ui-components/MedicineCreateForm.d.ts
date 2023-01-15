@@ -14,19 +14,25 @@ export declare type ValidationResponse = {
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type MedicineCreateFormInputValues = {
     name?: string;
-    price?: string;
+    price?: number;
     content?: string;
     sideeffects?: string;
     image?: string;
-    dosage?: string;
+    description?: string;
+    uses?: string;
+    itemPerStrip?: number;
+    stripStock?: number;
 };
 export declare type MedicineCreateFormValidationValues = {
     name?: ValidationFunction<string>;
-    price?: ValidationFunction<string>;
+    price?: ValidationFunction<number>;
     content?: ValidationFunction<string>;
     sideeffects?: ValidationFunction<string>;
     image?: ValidationFunction<string>;
-    dosage?: ValidationFunction<string>;
+    description?: ValidationFunction<string>;
+    uses?: ValidationFunction<string>;
+    itemPerStrip?: ValidationFunction<number>;
+    stripStock?: ValidationFunction<number>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type MedicineCreateFormOverridesProps = {
@@ -36,7 +42,10 @@ export declare type MedicineCreateFormOverridesProps = {
     content?: PrimitiveOverrideProps<TextFieldProps>;
     sideeffects?: PrimitiveOverrideProps<TextFieldProps>;
     image?: PrimitiveOverrideProps<TextFieldProps>;
-    dosage?: PrimitiveOverrideProps<TextFieldProps>;
+    description?: PrimitiveOverrideProps<TextFieldProps>;
+    uses?: PrimitiveOverrideProps<TextFieldProps>;
+    itemPerStrip?: PrimitiveOverrideProps<TextFieldProps>;
+    stripStock?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type MedicineCreateFormProps = React.PropsWithChildren<{
     overrides?: MedicineCreateFormOverridesProps | undefined | null;

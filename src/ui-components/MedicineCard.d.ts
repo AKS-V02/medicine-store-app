@@ -7,18 +7,18 @@
 import * as React from "react";
 import { Medicine } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { ButtonProps, FlexProps, ImageProps, RatingProps, TextProps } from "@aws-amplify/ui-react";
+import { ButtonProps, FlexProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type MedicineCardOverridesProps = {
     MedicineCard?: PrimitiveOverrideProps<FlexProps>;
+    Button36562693?: PrimitiveOverrideProps<ButtonProps>;
     image?: PrimitiveOverrideProps<ImageProps>;
     "Card Area"?: PrimitiveOverrideProps<FlexProps>;
     "Main Text"?: PrimitiveOverrideProps<FlexProps>;
     "Classic Long Sleeve T-Shirt"?: PrimitiveOverrideProps<TextProps>;
     "Information about this product"?: PrimitiveOverrideProps<TextProps>;
-    Rating?: PrimitiveOverrideProps<RatingProps>;
     "$99 USD"?: PrimitiveOverrideProps<TextProps>;
-    Button?: PrimitiveOverrideProps<ButtonProps>;
+    Button29766759?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
 export declare type MedicineCardProps = React.PropsWithChildren<Partial<FlexProps> & {
     medicine?: Medicine;

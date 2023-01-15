@@ -1,9 +1,13 @@
 type Medicine @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
-  price: String!
+  price: Float!
   content: String
   sideeffects: String
   image: String
-  dosage: String!
+  description: String!
+  uses: String
+  itemPerStrip: Int!
+  stripStock: Int!
 }
+ 
