@@ -6,10 +6,20 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import { Medicine } from "../models";
+import {
+  getOverrideProps,
+  useDataStoreDeleteAction,
+} from "@aws-amplify/ui-react/internal";
+import { schema } from "../models/schema";
 import { Button, Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function MedicineCard(props) {
   const { medicine, overrides, ...rest } = props;
+  const buttonThreeSixFiveSixTwoSixNineThreeOnClick = useDataStoreDeleteAction({
+    id: medicine?.id,
+    model: Medicine,
+    schema: schema,
+  });
   return (
     <Flex
       gap="0"
@@ -21,7 +31,7 @@ export default function MedicineCard(props) {
       position="relative"
       borderRadius="20px"
       padding="0px 0px 0px 0px"
-      backgroundColor="rgba(255,255,255,1)"
+      backgroundColor="rgba(122,207,120,1)"
       {...getOverrideProps(overrides, "MedicineCard")}
       {...rest}
     >
@@ -34,6 +44,9 @@ export default function MedicineCard(props) {
         isDisabled={false}
         variation="link"
         children="Delete"
+        onClick={() => {
+          buttonThreeSixFiveSixTwoSixNineThreeOnClick();
+        }}
         {...getOverrideProps(overrides, "Button36562693")}
       ></Button>
       <Image
@@ -109,12 +122,11 @@ export default function MedicineCard(props) {
             direction="column"
             justifyContent="unset"
             letterSpacing="0.01px"
-            width="unset"
+            width="288px"
             height="unset"
             gap="unset"
             alignItems="unset"
             shrink="0"
-            alignSelf="stretch"
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"

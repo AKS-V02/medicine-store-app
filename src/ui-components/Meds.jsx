@@ -30,14 +30,14 @@ export default function Meds(props) {
   return (
     <Collection
       type="grid"
-      isSearchable={true}
+      isSearchable="true"
       isPaginated={true}
       searchPlaceholder="Search..."
       itemsPerPage={2}
       templateColumns="1fr 1fr"
       autoFlow="row"
       alignItems="stretch"
-      justifyContent="stretch"
+      justifyContent="left"
       items={items || []}
       {...getOverrideProps(overrides, "Meds")}
       {...rest}

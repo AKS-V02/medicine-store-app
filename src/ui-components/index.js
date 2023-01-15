@@ -5,8 +5,8 @@
  **************************************************************************/
 
 export { default as Features2x3 } from "./Features2x3";
-export { default as MarketingFooter } from "./MarketingFooter";
-export { default as ReviewCard } from "./ReviewCard";
+export { default as Footer } from "./Footer";
+export { default as MedicineDetails } from "./MedicineDetails";
 export { default as StandardCard } from "./StandardCard";
 export { default as ProductCard } from "./ProductCard";
 export { default as HeroLayout4 } from "./HeroLayout4";
