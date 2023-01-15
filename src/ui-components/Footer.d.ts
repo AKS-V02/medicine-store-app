@@ -22,7 +22,6 @@ export declare type FooterOverridesProps = {
     "Lorem ipsum dolor sit amet29766996"?: PrimitiveOverrideProps<TextProps>;
     "Consectetur adipiscing29766997"?: PrimitiveOverrideProps<TextProps>;
     "Elit sed do eiusmod29766998"?: PrimitiveOverrideProps<TextProps>;
-    "Lorem ipsum dolor sit amet 2021"?: PrimitiveOverrideProps<TextProps>;
     "Frame 313"?: PrimitiveOverrideProps<FlexProps>;
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna"?: PrimitiveOverrideProps<TextProps>;
     TextField?: PrimitiveOverrideProps<TextFieldProps>;

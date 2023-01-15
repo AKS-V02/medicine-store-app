@@ -27,7 +27,7 @@ export default function MedicineCard(props) {
       width="320px"
       height="unset"
       justifyContent="center"
-      alignItems="flex-start"
+      alignItems="center"
       position="relative"
       borderRadius="20px"
       padding="0px 0px 0px 0px"
@@ -36,7 +36,8 @@ export default function MedicineCard(props) {
       {...rest}
     >
       <Button
-        overflow="hidden"
+        alignItems="flex-start"
+        borderRadius="20px"
         shrink="0"
         alignSelf="stretch"
         boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
@@ -80,7 +81,7 @@ export default function MedicineCard(props) {
           gap="8px"
           direction="column"
           width="unset"
-          height="unset"
+          height="52px"
           justifyContent="flex-start"
           alignItems="flex-start"
           shrink="0"
@@ -126,7 +127,9 @@ export default function MedicineCard(props) {
             height="unset"
             gap="unset"
             alignItems="unset"
-            shrink="0"
+            grow="1"
+            shrink="1"
+            basis="0"
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"

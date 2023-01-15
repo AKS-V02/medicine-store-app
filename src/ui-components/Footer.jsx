@@ -261,29 +261,6 @@ export default function Footer(props) {
           ></Text>
         </Flex>
       </Flex>
-      <Text
-        fontFamily="Inter"
-        fontSize="16px"
-        fontWeight="400"
-        color="rgba(255,255,255,1)"
-        lineHeight="24px"
-        textAlign="right"
-        display="block"
-        direction="column"
-        justifyContent="unset"
-        letterSpacing="0.01px"
-        width="unset"
-        height="unset"
-        gap="unset"
-        alignItems="unset"
-        position="absolute"
-        bottom="40px"
-        right="40px"
-        padding="0px 0px 0px 0px"
-        whiteSpace="pre-wrap"
-        children="Lorem ipsum dolor sit amet 2021"
-        {...getOverrideProps(overrides, "Lorem ipsum dolor sit amet 2021")}
-      ></Text>
       <Flex
         gap="16px"
         direction="column"

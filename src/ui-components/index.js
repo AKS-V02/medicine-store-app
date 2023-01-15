@@ -18,7 +18,7 @@ export { default as CommentCard } from "./CommentCard";
 export { default as HeroLayout3 } from "./HeroLayout3";
 export { default as ItemCard } from "./ItemCard";
 export { default as NavBar } from "./NavBar";
-export { default as EditProfile } from "./EditProfile";
+export { default as MedicineForm } from "./MedicineForm";
 export { default as FormCheckout } from "./FormCheckout";
 export { default as FAQItem } from "./FAQItem";
 export { default as ProductDetail } from "./ProductDetail";

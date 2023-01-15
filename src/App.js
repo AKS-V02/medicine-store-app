@@ -12,10 +12,25 @@ import {
 
 
 function App() {
+  const footerOverride ={
+    'Rectangle 738' : {
+      width : "100%"
+    },
+  };
+  const navBarOverride ={
+    "Add Medicine" : {
+      style : {
+        cursor : "pointer",
+      },
+      onClick : () => {
+        alert("hellow");
+      },
+    },
+  };
   return (
     <div className="App">
-      <NavBar width={"100%"} />
-        <header className="App-header">
+      <NavBar width={"100%"} overrides={navBarOverride}/>
+        <header className="App-header" >
           <Meds 
             overrideItems={({item,index}) => ({
               overrides : {
@@ -27,7 +42,13 @@ function App() {
             })}
           />
         </header>
-      <Footer width={"100%"} />
+        <Footer width={"100%"} 
+          overrides={footerOverride
+            /*{'Rectangle 738': {
+             width : "100%",
+          },}*/
+        }
+        />
     </div>
   );
 }
