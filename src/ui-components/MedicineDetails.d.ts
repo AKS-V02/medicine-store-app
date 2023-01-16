@@ -7,7 +7,7 @@
 import * as React from "react";
 import { Medicine } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { ButtonProps, DividerProps, FlexProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
+import { ButtonProps, DividerProps, FlexProps, ImageProps, TextFieldProps, TextProps } from "@aws-amplify/ui-react";
 import { MyIconProps } from "./MyIcon";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type MedicineDetailsOverridesProps = {
@@ -26,8 +26,10 @@ export declare type MedicineDetailsOverridesProps = {
     Features36662685?: PrimitiveOverrideProps<FlexProps>;
     Description?: PrimitiveOverrideProps<TextProps>;
     "Bottom Row"?: PrimitiveOverrideProps<FlexProps>;
+    TextField?: PrimitiveOverrideProps<TextFieldProps>;
     "In Stock"?: PrimitiveOverrideProps<TextProps>;
     Edit?: MyIconProps;
+    Save?: MyIconProps;
     Price?: PrimitiveOverrideProps<TextProps>;
     Button?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;

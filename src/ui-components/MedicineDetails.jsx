@@ -7,7 +7,14 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Button, Divider, Flex, Image, Text } from "@aws-amplify/ui-react";
+import {
+  Button,
+  Divider,
+  Flex,
+  Image,
+  Text,
+  TextField,
+} from "@aws-amplify/ui-react";
 import MyIcon from "./MyIcon";
 export default function MedicineDetails(props) {
   const { medicine, overrides, ...rest } = props;
@@ -263,6 +270,17 @@ export default function MedicineDetails(props) {
           padding="0px 0px 0px 0px"
           {...getOverrideProps(overrides, "Bottom Row")}
         >
+          <TextField
+            width="80px"
+            shrink="0"
+            borderRadius="5px"
+            size="small"
+            isDisabled={true}
+            labelHidden={true}
+            variation="default"
+            value={medicine?.stripStock}
+            {...getOverrideProps(overrides, "TextField")}
+          ></TextField>
           <Text
             fontFamily="Inter"
             fontSize="16px"
@@ -281,7 +299,7 @@ export default function MedicineDetails(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children={`${medicine?.stripStock}${" Strip in stock"}`}
+            children="Strips in stock"
             {...getOverrideProps(overrides, "In Stock")}
           ></Text>
           <MyIcon
@@ -297,6 +315,19 @@ export default function MedicineDetails(props) {
             padding="0px 0px 0px 0px"
             type="edit"
             {...getOverrideProps(overrides, "Edit")}
+          ></MyIcon>
+          <MyIcon
+            width="24px"
+            height="24px"
+            display="block"
+            gap="unset"
+            alignItems="unset"
+            justifyContent="unset"
+            shrink="0"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            type="checkmark"
+            {...getOverrideProps(overrides, "Save")}
           ></MyIcon>
           <Text
             fontFamily="Inter"
@@ -318,7 +349,7 @@ export default function MedicineDetails(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children={`${"Rs "}${medicine?.price}`}
+            children={`${"Rs "}${medicine?.price}${"/Strip"}`}
             {...getOverrideProps(overrides, "Price")}
           ></Text>
         </Flex>

@@ -14,6 +14,7 @@ import {
   useStateMutationAction,
 } from "@aws-amplify/ui-react/internal";
 import { schema } from "../models/schema";
+import { useEffect } from "react";
 import {
   Button,
   Divider,
@@ -94,6 +95,82 @@ export default function MedicineForm(props) {
     model: Medicine,
     schema: schema,
   });
+  useEffect(() => {
+    if (
+      textFieldTwoNineSevenSixSixNineTwoTwoValue === "" &&
+      medicine !== undefined &&
+      medicine?.name !== undefined
+    )
+      setTextFieldTwoNineSevenSixSixNineTwoTwoValue(medicine?.name);
+  }, [medicine]);
+  useEffect(() => {
+    if (
+      textFieldThreeSixSevenEightTwoSevenTwoFourValue === "" &&
+      medicine !== undefined &&
+      medicine?.price !== undefined
+    )
+      setTextFieldThreeSixSevenEightTwoSevenTwoFourValue(medicine?.price);
+  }, [medicine]);
+  useEffect(() => {
+    if (
+      textFieldTwoNineSevenSixSixNineTwoThreeValue === "" &&
+      medicine !== undefined &&
+      medicine?.content !== undefined
+    )
+      setTextFieldTwoNineSevenSixSixNineTwoThreeValue(medicine?.content);
+  }, [medicine]);
+  useEffect(() => {
+    if (
+      textFieldTwoNineSevenSixSixNineTwoFourValue === "" &&
+      medicine !== undefined &&
+      medicine?.sideeffects !== undefined
+    )
+      setTextFieldTwoNineSevenSixSixNineTwoFourValue(medicine?.sideeffects);
+  }, [medicine]);
+  useEffect(() => {
+    if (
+      textFieldThreeSixSevenEightTwoSevenFiveTwoValue === "" &&
+      medicine !== undefined &&
+      medicine?.image !== undefined
+    )
+      setTextFieldThreeSixSevenEightTwoSevenFiveTwoValue(medicine?.image);
+  }, [medicine]);
+  useEffect(() => {
+    if (
+      textFieldThreeSixSevenEightTwoSevenThreeOneValue === "" &&
+      medicine !== undefined &&
+      medicine?.description !== undefined
+    )
+      setTextFieldThreeSixSevenEightTwoSevenThreeOneValue(
+        medicine?.description
+      );
+  }, [medicine]);
+  useEffect(() => {
+    if (
+      textFieldThreeSixSevenEightTwoSevenOneSevenValue === "" &&
+      medicine !== undefined &&
+      medicine?.uses !== undefined
+    )
+      setTextFieldThreeSixSevenEightTwoSevenOneSevenValue(medicine?.uses);
+  }, [medicine]);
+  useEffect(() => {
+    if (
+      textFieldThreeSixSevenEightTwoSevenThreeEightValue === "" &&
+      medicine !== undefined &&
+      medicine?.itemPerStrip !== undefined
+    )
+      setTextFieldThreeSixSevenEightTwoSevenThreeEightValue(
+        medicine?.itemPerStrip
+      );
+  }, [medicine]);
+  useEffect(() => {
+    if (
+      textFieldThreeSixSevenEightTwoSevenFourFiveValue === "" &&
+      medicine !== undefined &&
+      medicine?.stripStock !== undefined
+    )
+      setTextFieldThreeSixSevenEightTwoSevenFourFiveValue(medicine?.stripStock);
+  }, [medicine]);
   return (
     <Flex
       gap="16px"
@@ -227,6 +304,7 @@ export default function MedicineForm(props) {
             borderRadius="160px"
             padding="0px 0px 0px 0px"
             objectFit="cover"
+            src={medicine?.image}
             {...getOverrideProps(overrides, "image")}
           ></Image>
         </Flex>
@@ -429,7 +507,7 @@ export default function MedicineForm(props) {
             size="default"
             isDisabled={false}
             variation="primary"
-            children="Save"
+            children="Add"
             onClick={() => {
               buttonThreeSixSevenEightTwoSevenFiveNineOnClick();
             }}

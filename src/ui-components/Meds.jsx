@@ -37,7 +37,7 @@ export default function Meds(props) {
       templateColumns="1fr 1fr"
       autoFlow="row"
       alignItems="stretch"
-      justifyContent="left"
+      justifyContent="stretch"
       items={items || []}
       {...getOverrideProps(overrides, "Meds")}
       {...rest}
