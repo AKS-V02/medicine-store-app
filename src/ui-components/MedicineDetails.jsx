@@ -53,13 +53,11 @@ export default function MedicineDetails(props) {
       <Flex
         gap="24px"
         direction="column"
-        width="unset"
+        width="600px"
         height="unset"
         justifyContent="flex-start"
         alignItems="flex-start"
-        grow="1"
-        shrink="1"
-        basis="0"
+        shrink="0"
         alignSelf="stretch"
         position="relative"
         padding="32px 32px 32px 32px"
@@ -278,7 +276,7 @@ export default function MedicineDetails(props) {
             isDisabled={true}
             labelHidden={true}
             variation="default"
-            value={medicine?.stripStock}
+            defaultValue={medicine?.stripStock}
             {...getOverrideProps(overrides, "TextField")}
           ></TextField>
           <Text

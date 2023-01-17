@@ -25,11 +25,13 @@ import { Medicine } from './models';
 
 
 function App() {
+  const [updateButton, setUpdateButton] = useState(false);
   async function updateStock(medicineId, newValue){
     const original = await DataStore.query(Medicine, medicineId);
     await DataStore.save(Medicine.copyOf(original, item=>{
       item.stripStock = newValue;
     }));
+    setUpdateButton(false);
   }
   const [showForm, setShowForm] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
@@ -64,6 +66,7 @@ function App() {
       }
     },
     "Button" : {
+      isDisabled : updateButton,
       onClick : () => {
         setupdateMedicine(medicine);
         setShowForm(true); 
@@ -76,7 +79,7 @@ function App() {
       },
       isDisabled : stock,
       onChange : (item) => {
-        setStockValue(item.target.value);
+        setStockValue(parseInt(item.target.value));
       }
     },
     "Edit" : {
@@ -93,7 +96,8 @@ function App() {
       },
       onClick : () => {
         setStock(true);
-        updateStock(medicine.id, stockValue)
+        setUpdateButton(true);
+        updateStock(medicine.id, stockValue);
       }
     }
 
