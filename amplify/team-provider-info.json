@@ -10,6 +10,11 @@
       "StackName": "amplify-medicinestoreapp-staging-193736",
       "StackId": "arn:aws:cloudformation:ap-south-1:873693938287:stack/amplify-medicinestoreapp-staging-193736/9135e080-92b0-11ed-8a0b-02d5592f2c7e",
       "AmplifyAppId": "d1tj672dnbrkij"
+    },
+    "categories": {
+      "auth": {
+        "MedicineStoreApp": {}
+      }
     }
   }
 }

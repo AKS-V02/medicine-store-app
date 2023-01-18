@@ -7,7 +7,7 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Flex, Icon, Image, Text } from "@aws-amplify/ui-react";
+import { Button, Flex, Icon, Image, Text } from "@aws-amplify/ui-react";
 export default function NavBar(props) {
   const { overrides, ...rest } = props;
   return (
@@ -15,7 +15,7 @@ export default function NavBar(props) {
       gap="20px"
       direction="row"
       width="1440px"
-      height="unset"
+      height="99px"
       justifyContent="center"
       alignItems="center"
       position="relative"
@@ -108,21 +108,64 @@ export default function NavBar(props) {
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "Frame 32129767081")}
       >
-        <Image
-          width="45px"
-          height="45px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
+        <Button
+          shrink="0"
+          size="small"
+          isDisabled={false}
+          variation="primary"
+          children="Sign Out"
+          {...getOverrideProps(overrides, "Button")}
+        ></Button>
+        <Flex
+          gap="10px"
+          direction="column"
+          width="unset"
+          height="77px"
+          justifyContent="flex-start"
+          alignItems="center"
           shrink="0"
           position="relative"
-          borderRadius="160px"
           padding="0px 0px 0px 0px"
-          objectFit="cover"
-          src="https://i.kym-cdn.com/entries/icons/original/000/018/385/Rs_634x1024-130605092844-634.DespMe2.mh.060513.jpg"
-          {...getOverrideProps(overrides, "image")}
-        ></Image>
+          {...getOverrideProps(overrides, "Frame 419")}
+        >
+          <Image
+            width="45px"
+            height="45px"
+            display="block"
+            gap="unset"
+            alignItems="unset"
+            justifyContent="unset"
+            shrink="0"
+            position="relative"
+            borderRadius="160px"
+            padding="0px 0px 0px 0px"
+            objectFit="cover"
+            src="https://i.kym-cdn.com/entries/icons/original/000/018/385/Rs_634x1024-130605092844-634.DespMe2.mh.060513.jpg"
+            {...getOverrideProps(overrides, "image")}
+          ></Image>
+          <Text
+            fontFamily="Inter"
+            fontSize="20px"
+            fontWeight="800"
+            color="rgba(0,0,0,1)"
+            lineHeight="25px"
+            textAlign="left"
+            display="block"
+            direction="column"
+            justifyContent="unset"
+            letterSpacing="0.05px"
+            width="unset"
+            height="unset"
+            gap="unset"
+            alignItems="unset"
+            shrink="0"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            whiteSpace="pre-wrap"
+            children="User Name"
+            {...getOverrideProps(overrides, "User Name")}
+          ></Text>
+        </Flex>
       </Flex>
     </Flex>
   );

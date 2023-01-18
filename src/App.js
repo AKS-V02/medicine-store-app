@@ -18,27 +18,37 @@ import {
 } from './ui-components';
 import { DataStore } from '@aws-amplify/datastore';
 import { Medicine } from './models';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import { Auth } from 'aws-amplify';
 
 
 
 
 
-
-function App() {
+function App({user, signOut}) {
+  const [showForm, setShowForm] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
+  const [medicine, setMedicine] = useState();
+  const [updateMedicine, setupdateMedicine] = useState();
+  const [stock, setStock] = useState(true);
+  const [stockValue, setStockValue] = useState();
   const [updateButton, setUpdateButton] = useState(false);
   async function updateStock(medicineId, newValue){
     const original = await DataStore.query(Medicine, medicineId);
     await DataStore.save(Medicine.copyOf(original, item=>{
       item.stripStock = newValue;
     }));
+    const newMedicine = await DataStore.query(Medicine, medicineId);
+    setMedicine(newMedicine);
     setUpdateButton(false);
   }
-  const [showForm, setShowForm] = useState(false);
-  const [showDetails, setShowDetails] = useState(false);
-  const [medicine, setMedicine] = useState();
-  const [updateMedicine, setupdateMedicine] = useState();
-  const [stock, setStock] = useState(true);
-  const [stockValue, setStockValue] = useState(0);
+  async function userSignOut(){
+    try {
+      await Auth.signOut();
+    } catch (error) {
+      console.log('error signing out: ', error);
+    }
+  };
   const footerOverride ={
     'Rectangle 738' : {
       width : "100%"
@@ -54,6 +64,17 @@ function App() {
         setShowDetails(false);
         setupdateMedicine();
       },
+    },
+    "Button" : {
+      onClick : () => {
+        userSignOut();
+      },
+    },
+    "image" : {
+      src : user?.attributes?.profile,
+    },
+    "User Name":{
+      children : user?.attributes?.name,
     },
   };
   const madicineDetailsComOverride = {
@@ -169,4 +190,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuthenticator(App);
