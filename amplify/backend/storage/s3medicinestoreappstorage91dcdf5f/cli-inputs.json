@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3medicinestoreappstorage91dcdf5f",
+  "bucketName": "medicinestoreapp-storage-91dcdf5f",
+  "policyUUID": "20546ba6",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}
